@@ -9,7 +9,7 @@
       --wine: #6a0f49;
       --tan: #fdf3e7;
       --text-dark: #1e1e1e;
-      --img-width: 25%; /* ← Change this to resize the image easily */
+      --img-width: 30%; /* ← Easily adjust image width here */
     }
 
     body {
@@ -37,24 +37,23 @@
       font-size: 1.2rem;
     }
 
-    section {
-      background-color: white;
-      padding: 1.5rem;
+    .content-wrapper {
+      display: flex;
+      max-width: 1200px;
       margin: 2rem auto;
-      max-width: 900px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      gap: 2rem;
+      padding: 0 1rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
     }
 
-    /* Image area */
     .image-area {
-      text-align: center;
-      margin-top: 2rem;
+      flex: 1 1 var(--img-width);
+      min-width: 250px;
     }
 
     .image-area img {
-      width: var(--img-width);
-      max-width: 100%;
+      width: 100%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -64,6 +63,18 @@
     .image-area img:hover {
       transform: scale(1.03);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .text-area {
+      flex: 2 1 60%;
+    }
+
+    section {
+      background-color: white;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
     /* Side menu styles */
@@ -137,6 +148,18 @@
         transition: none !important;
       }
     }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-area,
+      .text-area {
+        flex: 1 1 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -154,24 +177,28 @@
     <p>A journey through craftsmanship and creativity</p>
   </header>
 
-  <div class="image-area">
-    <img src="Owl knotbysight start good.png" alt="Handcrafted item example from Knot By Sight" />
+  <div class="content-wrapper">
+    <div class="image-area">
+      <img src="Owl knotbysight start good.png" alt="Handcrafted item example from Knot By Sight" />
+    </div>
+
+    <div class="text-area">
+      <section>
+        <h2>About the Project</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi, nec pulvinar lorem tincidunt in.</p>
+      </section>
+
+      <section>
+        <h2>Inspiration</h2>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      </section>
+
+      <section>
+        <h2>Get Involved</h2>
+        <p>Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla.</p>
+      </section>
+    </div>
   </div>
-
-  <section>
-    <h2>About the Project</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi, nec pulvinar lorem tincidunt in.</p>
-  </section>
-
-  <section>
-    <h2>Inspiration</h2>
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-  </section>
-
-  <section>
-    <h2>Get Involved</h2>
-    <p>Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla.</p>
-  </section>
 
   <script>
     function openMenu() {
