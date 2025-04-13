@@ -9,6 +9,7 @@
       --wine: #6a0f49;
       --tan: #fdf3e7;
       --text-dark: #1e1e1e;
+      --img-width: 80%; /* ← Change this to resize the image easily */
     }
 
     body {
@@ -52,9 +53,17 @@
     }
 
     .image-area img {
+      width: var(--img-width);
       max-width: 100%;
+      height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-area img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     }
 
     /* Side menu styles */
@@ -146,7 +155,7 @@
   </header>
 
   <div class="image-area">
-    <img src="Owl knotbysight start.png" alt="Handcrafted item example from Knot By Sight" />
+    <img src="your-image.jpg" alt="Handcrafted item example from Knot By Sight" />
   </div>
 
   <section>
