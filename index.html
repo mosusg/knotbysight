@@ -1,127 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knot By Sight</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            padding: 2rem;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knot By Sight</title>
+  <style>
+    :root {
+      --wine: #6a0f49;
+      --tan: #fdf3e7;
+      --text-dark: #1e1e1e;
+    }
 
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.8;
+      background-color: var(--tan);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-        }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--wine);
+      color: white;
+    }
 
-        section {
-            background-color: white;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    h1 {
+      font-size: 2.8rem;
+      margin: 0;
+    }
 
-        /* Side menu styles */
-        .menu-toggle {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            cursor: pointer;
-            z-index: 1001;
-            border-radius: 5px;
-        }
+    p {
+      font-size: 1.2rem;
+    }
 
-        .side-menu {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            background-color: #2c3e50;
-            overflow-x: hidden;
-            transition: 0.3s;
-            padding-top: 4rem;
-        }
+    section {
+      background-color: white;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
 
-        .side-menu a {
-            padding: 1rem 2rem;
-            text-decoration: none;
-            font-size: 1.2rem;
-            color: white;
-            display: block;
-            transition: 0.2s;
-        }
+    /* Image area */
+    .image-area {
+      text-align: center;
+      margin-top: 2rem;
+    }
 
-        .side-menu a:hover {
-            background-color: #34495e;
-        }
+    .image-area img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
 
-        .side-menu .close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+    /* Side menu styles */
+    .menu-toggle {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background-color: var(--wine);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 1001;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .menu-toggle:hover {
+      background-color: #510636;
+    }
+
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      background-color: var(--wine);
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 4rem;
+    }
+
+    .side-menu a {
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-size: 1.3rem;
+      color: white;
+      display: block;
+      transition: background-color 0.2s, padding-left 0.2s;
+    }
+
+    .side-menu a:hover {
+      background-color: #510636;
+      padding-left: 2.5rem;
+    }
+
+    .side-menu .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Accessibility enhancements */
+    a, button {
+      outline: none;
+    }
+
+    a:focus, button:focus {
+      outline: 3px dashed #ffc;
+      background-color: #510636;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <button class="menu-toggle" onclick="openMenu()">☰ Menu</button>
+  <button class="menu-toggle" onclick="openMenu()">☰ Menu</button>
 
-    <div id="sideMenu" class="side-menu">
-        <span class="close-btn" onclick="closeMenu()">&times;</span>
-        <a href="shop.html">Shop</a>
-        <a href="contact.html">Contact</a>
-    </div>
+  <div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">&times;</span>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-    <header>
-        <h1>Knot By Sight</h1>
-        <p>A journey through craftsmanship and creativity</p>
-    </header>
+  <header>
+    <h1>Knot By Sight</h1>
+    <p>A journey through craftsmanship and creativity</p>
+  </header>
 
-    <section>
-        <h2>About the Project</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi, nec pulvinar lorem tincidunt in.</p>
-    </section>
+  <div class="image-area">
+    <img src="your-image.jpg" alt="Handcrafted item example from Knot By Sight" />
+  </div>
 
-    <section>
-        <h2>Inspiration</h2>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </section>
+  <section>
+    <h2>About the Project</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi, nec pulvinar lorem tincidunt in.</p>
+  </section>
 
-    <section>
-        <h2>Get Involved</h2>
-        <p>Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla.</p>
-    </section>
+  <section>
+    <h2>Inspiration</h2>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+  </section>
 
-    <script>
-        function openMenu() {
-            document.getElementById("sideMenu").style.width = "250px";
-        }
+  <section>
+    <h2>Get Involved</h2>
+    <p>Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla.</p>
+  </section>
 
-        function closeMenu() {
-            document.getElementById("sideMenu").style.width = "0";
-        }
-    </script>
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+  </script>
 
 </body>
 </html>
