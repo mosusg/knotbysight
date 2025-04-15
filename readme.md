@@ -12,7 +12,7 @@
 ##
 ## To-Do
 - [ ]  **FIX SITE ON MOBILE**
-    - *(It's really bad right now)
+    - *(It's really bad right now)*
 - [ ]  Fix dark mode 
 - [ ]  Fix product detail cards
 - [ ]  Make contact page
