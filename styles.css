@@ -1,0 +1,449 @@
+* {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+    --wine: #6a0f49;
+    --tan: #fdf3e7;
+    --text-dark: #1e1e1e;
+    --img-width: 30%;
+  }
+
+body {
+    line-height: 1.6;
+    background-color: var(--tan);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+  header {
+    text-align: center;
+    background-color: var(--wine);
+    color: white;
+    padding: 0;
+    position: relative; /* Necessary to ensure the layout behaves as expected */  
+  }
+
+  .header-title {
+    text-align: center;
+    background-color: var(--wine);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--wine); /* Keeps the background color while sticky */
+    padding: 2rem 1rem; /* Padding for title */
+    margin: 0; /* No margin */
+    width: 100%; /* Full width to avoid shifting */
+  }
+      
+  /* The subtitle will scroll with the page */
+  .header-subtitle {
+    padding: 1rem 1rem;
+    background-color: var(--wine); /* Optional: for a seamless look */
+    margin-top: 0; /* To avoid overlap with sticky title */
+  }
+    
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+  }
+
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 2.8rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centers everything horizontally */
+    width: 100%;
+    max-width: 75vw;  /* Keeps the max-width for responsiveness */
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 2rem;
+    box-sizing: border-box;
+  }  
+  
+  .image-area {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;  /* Ensures the image container stretches full width */
+    max-width: 400px;  /* Controls the image container size */
+    margin: 0 auto;  /* Centers the image */
+  }
+  
+  .image-area img {
+    width: 100%;  /* Ensures image takes up full container width */
+    max-width: 100%;  /* Ensures it doesn't stretch too large */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .image-area img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-area {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;  /* Ensures it takes the full width of its container */
+    /*max-width: 1;  /* Controls the maximum width */
+    margin: 0 auto;
+    padding: 2em;
+    box-sizing: border-box;
+
+  }
+  
+  section {
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .menu-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--wine);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+
+  .menu-toggle:hover {
+    background-color: #510636;
+  }
+
+  .side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    background-color: var(--wine);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 4rem;
+  }
+
+  .side-menu a {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: white;
+    display: block;
+    transition: background-color 0.2s, padding-left 0.2s;
+  }
+
+  .side-menu a:hover {
+    background-color: #510636;
+    padding-left: 2.5rem;
+  }
+
+  .side-menu .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  a, button {
+    outline: none;
+  }
+
+  a:focus, button:focus {
+    outline: 3px dashed #ffc;
+    background-color: #510636;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content-wrapper {
+      padding: 1rem;  /* Add padding for smaller screens */
+    }
+  
+    .image-area,
+    .text-area {
+      width: 100%;  /* Full width on smaller screens */
+      max-width: 100%;  /* Ensures it doesn't break */
+    }
+  }
+  
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Only animate content-wrapper and side menu */
+  .content-wrapper,
+  .side-menu {
+    animation: fadeSlideIn 1s ease-out;
+    animation-fill-mode: both;
+  }
+
+  .text-area section {
+    background-color: #f9f9f9; /* Optional styling */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    min-height: 50vh; /* Full screen height for scrolling effect */
+    width: 100%;
+    display: flex;
+    flex-direction: column;  /* Keep header and paragraph stacked vertically */
+    align-items: center;     /* Center content horizontally */
+    text-align: center;      /* Center the text horizontally */
+    gap: 1.5rem;             /* Add space between header and paragraph */    
+
+    opacity: 0;
+    transform: translateY(30px); /* Slightly move up for animation effect */
+    transition: opacity 0.5s ease, transform 0.5s ease;  
+  }
+
+  .text-area section.visible-up {
+    opacity: 1;
+    transform: translateY(0); /* Move element into view */
+  }
+  
+  /* When the element is faded down (scrolled up to) */
+  .text-area section.visible-down {
+    opacity: 1;
+    transform: translateY(-30px); /* Move element up when scrolling up */
+  }
+  
+  .fade-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .fade-on-scroll.visible-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .shop-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem;
+    position: relative;
+    max-width: 100%;
+  }
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+  }
+  
+  .product-card {
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+  }
+      
+  .product-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .product-card p {
+    color: var(--wine);
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  /* Banner Styling */
+  .product-banner {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--wine);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.4s ease;
+    z-index: 10;
+  }
+    
+  .product-banner.active {
+    transform: translateY(0%);
+  }
+  
+  .close-banner {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .products {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .product-card .info {
+    padding: 1.5rem;
+  }
+  
+  .product-card .info h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-card .info p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+    
+  .product-card .product-banner {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: var(--wine);
+    padding: 2rem;
+    box-sizing: border-box;
+    transition: left 0.4s ease;
+    z-index: 2;
+  }
+  
+  .product-card.open .product-banner {
+    left: 0;
+  }
+  
+  .product-banner .banner-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-banner .banner-price {
+    font-size: 1.3rem;
+    color: #888;
+    margin-bottom: 1rem;
+  }
+  
+  .product-banner .banner-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .theme-toggle {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: #490a32;  /* Same as the theme color */
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;  /* Makes it a circle */
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1002;
+    transition: background-color 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    background-color: #510636;  /* Darker shade for hover */
+  }
+
+  .dark-theme {
+    background-color: #1e1e1e;
+    color: #fdf3e7;
+  }
+  
+  .dark-theme header {
+    background-color: #510636;  /* Darker background for header */
+  }
+  
+  .dark-theme .content-wrapper {
+    background-color: #2c2c2c;  /* Dark background for content */
+  }
+  
+  .dark-theme .product-card {
+    background-color: #333;  /* Dark card backgrounds */
+    border-color: #444;  /* Darker border */
+  }
+  
+  .dark-theme .product-banner {
+    background-color: #444;  /* Dark banner background */
+  }
+  

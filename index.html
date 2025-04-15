@@ -4,166 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Knot By Sight</title>
-  <style>
-    :root {
-      --wine: #6a0f49;
-      --tan: #fdf3e7;
-      --text-dark: #1e1e1e;
-      --img-width: 30%;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.8;
-      background-color: var(--tan);
-      color: var(--text-dark);
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: var(--wine);
-      color: white;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: bold;
-    }
-
-    h1 {
-      font-family: Georgia, serif;
-      font-size: 2.8rem;
-      margin: 0;
-    }
-
-    p {
-      font-size: 1.2rem;
-    }
-
-    .content-wrapper {
-      display: flex;
-      max-width: 1200px;
-      margin: 2rem auto;
-      gap: 2rem;
-      padding: 0 1rem;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
-
-    .image-area {
-      flex: 1 1 var(--img-width);
-      min-width: 250px;
-    }
-
-    .image-area img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .image-area img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    }
-
-    .text-area {
-      flex: 2 1 60%;
-    }
-
-    section {
-      background-color: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    }
-
-    .menu-toggle {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      background-color: var(--wine);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      font-size: 1.1rem;
-      cursor: pointer;
-      z-index: 1001;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-
-    .menu-toggle:hover {
-      background-color: #510636;
-    }
-
-    .side-menu {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      background-color: var(--wine);
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 4rem;
-    }
-
-    .side-menu a {
-      padding: 1rem 2rem;
-      text-decoration: none;
-      font-size: 1.3rem;
-      color: white;
-      display: block;
-      transition: background-color 0.2s, padding-left 0.2s;
-    }
-
-    .side-menu a:hover {
-      background-color: #510636;
-      padding-left: 2.5rem;
-    }
-
-    .side-menu .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
-
-    a, button {
-      outline: none;
-    }
-
-    a:focus, button:focus {
-      outline: 3px dashed #ffc;
-      background-color: #510636;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition: none !important;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .content-wrapper {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .image-area,
-      .text-area {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -171,20 +13,27 @@
 
   <div id="sideMenu" class="side-menu">
     <span class="close-btn" onclick="closeMenu()">&times;</span>
+    <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </div>
+
+  <div class="header-title">
+    <h1>Knot By Sight</h1>
   </div>
 
   <header>
-    <h1>Knot By Sight</h1>
-    <p>A journey through craftsmanship and creativity</p>
+    <div class="header-subtitle">
+      <p>A journey through craftsmanship and creativity</p>
+    </div>  
   </header>
 
   <div class="content-wrapper">
-    <div class="image-area">
+    <div class="image-area fade-on-scroll">
       <img src="Owl knotbysight start good.png" alt="Handcrafted item example from Knot By Sight" />
     </div>
-
+    
     <div class="text-area">
       <section>
         <h2>About the Project</h2>
@@ -212,6 +61,11 @@
       document.getElementById("sideMenu").style.width = "0";
     }
   </script>
-
+  <script src="scrollScript.js"></script>
+  <script>
+    function toggleTheme() {
+  document.body.classList.toggle('dark-theme');
+  }
+  </script>
 </body>
 </html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop | Knot By Sight</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <button class="menu-toggle" onclick="openMenu()">☰ Menu</button>
+
+  <div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">&times;</span>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </div>
+
+  <header>
+    <div class="header-title">
+      <h1>Shop</h1>
+    </div>
+  </header>
+
+  <main class="shop-container">
+    <div class="products">
+        <div class="product-card fade-on-scroll" onclick="toggleBanner(this)">
+          <img src="img/product1.jpg" alt="Product 1" />
+          <div class="info">
+            <h3>Knotted Owl</h3>
+            <p>$45.00</p>
+          </div>
+          <div class="product-banner">
+            <h4 class="banner-title">Knotted Owl</h4>
+            <p class="banner-price">$45.00</p>
+            <p class="banner-description">Hand-knotted owl made with natural cotton cord. Rustic and modern.</p>
+          </div>
+        </div>
+      
+        <div class="product-card fade-on-scroll" onclick="toggleBanner(this)">
+          <img src="img/product2.jpg" alt="Product 2" />
+          <div class="info">
+            <h3>Macrame Planter</h3>
+            <p>$35.00</p>
+          </div>
+          <div class="product-banner">
+            <h4 class="banner-title">Macrame Planter</h4>
+            <p class="banner-price">$35.00</p>
+            <p class="banner-description">Elegant macrame hanger for your indoor plants. Boho charm included.</p>
+          </div>
+        </div>
+      
+        <div class="product-card fade-on-scroll" onclick="toggleBanner(this)">
+          <img src="img/product3.jpg" alt="Product 3" />
+          <div class="info">
+            <h3>Woven Wall Art</h3>
+            <p>$60.00</p>
+          </div>
+          <div class="product-banner">
+            <h4 class="banner-title">Woven Wall Art</h4>
+            <p class="banner-price">$60.00</p>
+            <p class="banner-description">Large handwoven wall tapestry with earthy tones. Statement piece.</p>
+          </div>
+        </div>
+      
+        <div class="product-card fade-on-scroll" onclick="toggleBanner(this)">
+          <img src="img/product4.jpg" alt="Product 4" />
+          <div class="info">
+            <h3>Macrame Coasters (Set of 4)</h3>
+            <p>$25.00</p>
+          </div>
+          <div class="product-banner">
+            <h4 class="banner-title">Macrame Coasters</h4>
+            <p class="banner-price">$25.00</p>
+            <p class="banner-description">Protect your table with style. Natural fiber macrame coasters.</p>
+          </div>
+        </div>
+      
+        <div class="product-card fade-on-scroll" onclick="toggleBanner(this)">
+          <img src="img/product5.jpg" alt="Product 5" />
+          <div class="info">
+            <h3>Mini Wall Hanging</h3>
+            <p>$30.00</p>
+          </div>
+          <div class="product-banner">
+            <h4 class="banner-title">Mini Wall Hanging</h4>
+            <p class="banner-price">$30.00</p>
+            <p class="banner-description">Small and sweet, perfect for gifting or adding texture to your space.</p>
+          </div>
+        </div>
+      </div>
+          </div>
+  </main>
+  
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+
+    const faders = document.querySelectorAll('.fade-on-scroll');
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible-up');
+        } else {
+          entry.target.classList.remove('visible-up');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    faders.forEach((el) => appearOnScroll.observe(el));
+  </script>
+  <script src="shopBanners.js"></script>
+  <script>
+    function toggleTheme() {
+  document.body.classList.toggle('dark-theme');
+  }
+  </script>
+</body>
+</html>
