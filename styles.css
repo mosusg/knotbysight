@@ -256,15 +256,7 @@ body {
     opacity: 1;
     transform: translateY(-30px); /* Move element up when scrolling up */
   }
-  @media (max-width: 768px) {
-    .text-area {
-      font-size: 1.1rem;
-    }
   
-    .text-area h2 {
-      font-size: 1.5rem;
-    }
-  }
   .fade-on-scroll {
     opacity: 0;
     transform: translateY(30px);
