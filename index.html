@@ -2,34 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Knot By Sight</title>
+  <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <button class="menu-toggle" onclick="openMenu()">☰ Menu</button>
+
+  <div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">&times;</span>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </div>
+
+  <div class="header-title">
+    <h1>Knot By Sight</h1>
+  </div>
+
   <header>
-    <h1 class="site-title">Knot By Sight</h1>
-    <p class="tagline">Crafted without sight, seen with the soul.</p>
+    <div class="header-subtitle">
+      <p>"(placeholder)"</p>
+    </div>  
   </header>
 
-  <main>
-    <section class="about">
-      <h2>About Courtney</h2>
-      <p>
-        I'm Courtney Vacek, the hands and heart behind Knot By Sight. Legally blind since childhood, I experience the world through touch — and that’s exactly how I create.
-      </p>
-    </section>
+  <div class="content-wrapper">
+    <div class="image-area fade-on-scroll">
+      <img src="Owl knotbysight start good.png" alt="Handcrafted item example from Knot By Sight" />
+    </div>
+    
+    <div class="text-area">
+      <section>
+        <h2>About the Artist</h2>
+        <p>Based in Benicia, Courtney Vacek is a legally blind macramé artist who crafts by touch, intuition, and heart.
+          Despite living with a progressive retinal disease, she creates detailed, one-of-a-kind fiber art that celebrates texture, peace, and soulful expression.</p>
+      </section>
 
-    <section class="product">
-      <h2>Mini Wall Hanging – "Desert Calm"</h2>
-      <p>
-        Hand-knotted with 100% cotton cord, this piece channels the peaceful stillness of a desert sunrise. Each knot is a meditative step in Courtney's unique process.
-      </p>
-    </section>
-  </main>
+      <section>
+        <h2>The Inspiration</h2>
+        <p>Each piece is a symbol of resilience and the beauty of handmade work.
+           As her vision fades, her creativity deepens—offering inspiration to others to keep creating, no matter the challenges.</p>
+      </section>
 
-  <footer>
-    <p>&copy; 2025 Knot By Sight</p>
-  </footer>
+      <section>
+        <h2>Commissions</h2>
+        <p>Email (insert email later) to ask for a personal commission.</p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+  </script>
+  <script src="scrollScript.js"></script>
+  <script>
+    function toggleTheme() {
+  document.body.classList.toggle('dark-theme');
+  }
+  </script>
 </body>
 </html>
