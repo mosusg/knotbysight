@@ -35,7 +35,7 @@ body {
     background-color: var(--wine);
     color: white;
     padding: 0;
-    position: relative; /* Necessary to ensure the layout behaves as expected */  
+    position: relative;  
   }
 
   .header-title {
@@ -46,19 +46,16 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: var(--wine); /* Keeps the background color while sticky */
-    padding: 2rem 1rem; /* Padding for title */
-    margin: 0; /* No margin */
-    width: 100%; /* Full width to avoid shifting */
+    padding: 2rem 1rem;
+    margin: 0;
+    width: 100%;
   }
       
-  /* The subtitle will scroll with the page */
   .header-subtitle {
     padding: 1rem 1rem;
-    background-color: var(--wine); /* Optional: for a seamless look */
-    margin-top: 0; /* To avoid overlap with sticky title */
+    background-color: var(--wine);
+    margin-top: 0;
   }
-    
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
@@ -77,9 +74,9 @@ body {
   .content-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Centers everything horizontally */
+    align-items: center;
     width: 100%;
-    max-width: 75vw;  /* Keeps the max-width for responsiveness */
+    max-width: 75vw;
     margin: 0 auto;
     padding: 2rem;
     gap: 2rem;
@@ -89,14 +86,14 @@ body {
   .image-area {
     text-align: center;
     margin-bottom: 3rem;
-    width: 100%;  /* Ensures the image container stretches full width */
-    max-width: 400px;  /* Controls the image container size */
-    margin: 0 auto;  /* Centers the image */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
   
   .image-area img {
-    width: 100%;  /* Ensures image takes up full container width */
-    max-width: 100%;  /* Ensures it doesn't stretch too large */
+    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -112,12 +109,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    width: 100%;  /* Ensures it takes the full width of its container */
-    /*max-width: 1;  /* Controls the maximum width */
+    width: 100%;
     margin: 0 auto;
     padding: 2em;
     box-sizing: border-box;
-
   }
   
   section {
@@ -198,18 +193,6 @@ body {
     }
   }
 
-  @media (max-width: 768px) {
-    .content-wrapper {
-      padding: 1rem;  /* Add padding for smaller screens */
-    }
-  
-    .image-area,
-    .text-area {
-      width: 100%;  /* Full width on smaller screens */
-      max-width: 100%;  /* Ensures it doesn't break */
-    }
-  }
-  
   @keyframes fadeSlideIn {
     0% {
       opacity: 0;
@@ -220,8 +203,7 @@ body {
       transform: translateY(0);
     }
   }
-  
-  /* Only animate content-wrapper and side menu */
+
   .content-wrapper,
   .side-menu {
     animation: fadeSlideIn 1s ease-out;
@@ -229,45 +211,43 @@ body {
   }
 
   .text-area section {
-    background-color: #f9f9f9; /* Optional styling */
+    background-color: #f9f9f9;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    min-height: 50vh; /* Full screen height for scrolling effect */
+    min-height: 50vh;
     width: 100%;
     display: flex;
-    flex-direction: column;  /* Keep header and paragraph stacked vertically */
-    align-items: center;     /* Center content horizontally */
-    text-align: center;      /* Center the text horizontally */
-    gap: 1.5rem;             /* Add space between header and paragraph */    
-
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
     opacity: 0;
-    transform: translateY(30px); /* Slightly move up for animation effect */
+    transform: translateY(30px);
     transition: opacity 0.5s ease, transform 0.5s ease;  
   }
 
   .text-area section.visible-up {
     opacity: 1;
-    transform: translateY(0); /* Move element into view */
+    transform: translateY(0);
   }
-  
-  /* When the element is faded down (scrolled up to) */
+
   .text-area section.visible-down {
     opacity: 1;
-    transform: translateY(-30px); /* Move element up when scrolling up */
+    transform: translateY(-30px);
   }
-  
+
   .fade-on-scroll {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  
+
   .fade-on-scroll.visible-up {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   .shop-container {
     display: flex;
     justify-content: flex-end;
@@ -275,14 +255,14 @@ body {
     position: relative;
     max-width: 100%;
   }
-  
+
   .product-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     max-width: 900px;
   }
-  
+
   .product-card {
     width: 90%;
     max-width: 600px;
@@ -295,12 +275,12 @@ body {
     position: relative;
     transition: transform 0.3s ease;
   }
-  
+
   .product-card:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
-  
+
   .product-card img {
     width: 100%;
     height: 350px;
@@ -312,14 +292,13 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
   }
-  
+
   .product-card p {
     color: var(--wine);
     font-weight: bold;
     font-size: 1rem;
   }
-  
-  /* Banner Styling */
+
   .product-banner {
     position: absolute;
     top: 0;
@@ -339,7 +318,7 @@ body {
   .product-banner.active {
     transform: translateY(0%);
   }
-  
+
   .close-banner {
     position: absolute;
     top: 0.5rem;
@@ -347,7 +326,7 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
   }
-  
+
   .products {
     display: flex;
     flex-direction: column;
@@ -358,16 +337,16 @@ body {
     margin: 0 auto;
     padding: 2rem;
   }
-  
+
   .product-card .info {
     padding: 1.5rem;
   }
-  
+
   .product-card .info h3 {
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .product-card .info p {
     font-size: 1.2rem;
     color: #555;
@@ -385,65 +364,121 @@ body {
     transition: left 0.4s ease;
     z-index: 2;
   }
-  
+
   .product-card.open .product-banner {
     left: 0;
   }
-  
+
   .product-banner .banner-title {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .product-banner .banner-price {
     font-size: 1.3rem;
     color: #888;
     margin-bottom: 1rem;
   }
-  
+
   .product-banner .banner-description {
     font-size: 1.1rem;
     line-height: 1.6;
   }
-  
+
   .theme-toggle {
     position: fixed;
     bottom: 1rem;
     left: 1rem;
-    background-color: #490a32;  /* Same as the theme color */
+    background-color: #490a32;
     color: white;
     border: none;
     padding: 1rem;
-    border-radius: 50%;  /* Makes it a circle */
+    border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1002;
     transition: background-color 0.3s ease;
   }
-  
+
   .theme-toggle:hover {
-    background-color: #510636;  /* Darker shade for hover */
+    background-color: #510636;
   }
 
   .dark-theme {
     background-color: #1e1e1e;
     color: #fdf3e7;
   }
-  
+
   .dark-theme header {
-    background-color: #510636;  /* Darker background for header */
+    background-color: #510636;
   }
-  
+
   .dark-theme .content-wrapper {
-    background-color: #2c2c2c;  /* Dark background for content */
+    background-color: #2c2c2c;
   }
-  
+
   .dark-theme .product-card {
-    background-color: #333;  /* Dark card backgrounds */
-    border-color: #444;  /* Darker border */
+    background-color: #333;
+    border-color: #444;
   }
-  
+
   .dark-theme .product-banner {
-    background-color: #444;  /* Dark banner background */
+    background-color: #444;
   }
-  
+
+  /* Mobile Font Overrides */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      padding: 1rem;
+    }
+
+    .image-area,
+    .text-area {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+
+    .product-card h3 {
+      font-size: 1rem;
+    }
+
+    .product-card p {
+      font-size: 0.9rem;
+    }
+
+    .product-card .info h3 {
+      font-size: 1.3rem;
+    }
+
+    .product-card .info p {
+      font-size: 1rem;
+    }
+
+    .product-banner .banner-title {
+      font-size: 1.2rem;
+    }
+
+    .product-banner .banner-price {
+      font-size: 1rem;
+    }
+
+    .product-banner .banner-description {
+      font-size: 0.95rem;
+    }
+  }
