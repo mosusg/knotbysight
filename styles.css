@@ -431,7 +431,7 @@ body {
   }
 
   /* Mobile Font Overrides */
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     .content-wrapper {
       padding: 1rem;
     }
