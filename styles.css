@@ -486,12 +486,12 @@ body {
       font-size: 0.95rem;
     }
     .text-area {
-      width: 100%;
-      max-width: 100%;
+      width: 150%;
+      max-width: 150%;
     }
   
     .text-area section {
-      width: 95%; /* or even 100% */
+      width: 150%;
     }
   }
 
