@@ -488,16 +488,16 @@ body {
     .text-area {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.0rem;
       width: 100%;
       margin: 0 auto;
-      padding: 1.5em;
+      padding: 1.0em;
       box-sizing: border-box;
     }
       .text-area section {
         background-color: #f9f9f900;
-        padding: 1rem;
-        border-radius: 8px;
+        padding: 0.5rem;
+        border-radius: 2px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         min-height: 50vh;
         width: 100%;
