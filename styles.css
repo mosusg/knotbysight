@@ -485,4 +485,13 @@ body {
     .product-banner .banner-description {
       font-size: 0.95rem;
     }
+    .text-area {
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    .text-area section {
+      width: 95%; /* or even 100% */
+    }
   }
+
